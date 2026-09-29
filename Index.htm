@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scratch Quiz Review Presentation</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            scratch: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+            },
+            motion: '#4C97FF',
+            looks: '#9966FF',
+            events: '#FFBF00',
+            control: '#FFAB19',
+            sensing: '#5CB1D6',
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0f172a;
+      font-family: 'Inter', sans-serif;
+    }
+    .slide {
+      display: none;
+    }
+    .slide.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body class="h-screen w-screen overflow-hidden flex flex-col justify-between p-4 sm:p-8 select-none">
+
+  <!-- TOP DECK HEADER -->
+  <header class="max-w-6xl w-full mx-auto flex justify-between items-center text-white/80">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-scratch-500 flex items-center justify-center text-white shadow-lg shadow-scratch-500/30">
+        <i class="fa-solid fa-puzzle-piece text-xl"></i>
+      </div>
+      <div>
+        <h1 class="font-display font-black text-lg text-white leading-tight">Scratch Quiz Review</h1>
+        <p class="text-xs text-scratch-400 font-bold uppercase tracking-wider">Year 5 Primary Computing</p>
+      </div>
+    </div>
+    <div class="bg-slate-800/80 border border-slate-700/60 px-4 py-1.5 rounded-full text-xs font-bold text-slate-300">
+      Slide <span id="current-slide-num" class="text-scratch-400">1</span> of <span id="total-slides-num">8</span>
+    </div>
+  </header>
+
+  <!-- MAIN SLIDE CONTAINER -->
+  <main class="max-w-6xl w-full mx-auto my-auto h-[78vh] bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl relative flex flex-col justify-between overflow-hidden">
+    
+    <!-- BACKGROUND DECORATIVE GLOWS -->
+    <div class="absolute -top-32 -left-32 w-80 h-80 bg-scratch-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- SLIDE 1: COVER -->
+    <div class="slide active flex-col justify-center items-center text-center h-full space-y-6">
+      <div class="w-24 h-24 bg-scratch-500/20 border-2 border-scratch-500 text-scratch-500 rounded-3xl flex items-center justify-center text-5xl shadow-inner mb-2 animate-bounce">
+        <i class="fa-solid fa-cat"></i>
+      </div>
+      <span class="bg-scratch-500/10 text-scratch-400 border border-scratch-500/30 font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-widest">Interactive Class Review</span>
+      <h1 class="font-display font-black text-4xl sm:text-6xl text-white tracking-tight max-w-3xl leading-tight">
+        Scratch Logic & Conditionals
+      </h1>
+      <p class="text-slate-400 text-lg max-w-xl font-medium">
+        Reviewing key concepts: Event Triggers, Motion Coordinates, Loops, and <span class="text-scratch-400 font-bold">If-Then Decision Making</span>.
+      </p>
+      <div class="pt-4 flex gap-3 text-xs font-bold text-slate-400">
+        <span class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700"><i class="fa-solid fa-keyboard mr-1"></i> Use Left/Right Arrows</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: CONDITIONAL STATEMENTS OVERVIEW -->
+    <div class="slide flex-col justify-between h-full">
+      <div>
+        <span class="text-scratch-400 font-extrabold text-xs uppercase tracking-wider">Concept 1</span>
+        <h2 class="font-display font-black text-3xl text-white mt-1">What is a Conditional Statement?</h2>
+        <p class="text-slate-400 text-sm mt-1">Computers use conditions to make decisions based on rules.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <!-- IF-THEN BLOCK CARD -->
+        <div class="bg-slate-800/80 border-2 border-control rounded-2xl p-6 relative">
+          <div class="bg-control text-slate-900 font-black text-xs px-3 py-1 rounded-md inline-block uppercase mb-3">if - then</div>
+          <h3 class="text-white font-bold text-xl mb-2">One Pathway Choice</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Runs the code inside <b class="text-scratch-400">ONLY IF</b> the condition is TRUE. If FALSE, Scratch skips it entirely.
+          </p>
+          <div class="mt-4 bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-amber-400">
+            if &lt;touching lava?&gt; then<br/>
+            &nbsp;&nbsp;lose life
+          </div>
+        </div>
+
+        <!-- IF-THEN-ELSE BLOCK CARD -->
+        <div class="bg-slate-800/80 border-2 border-control rounded-2xl p-6 relative">
+          <div class="bg-control text-slate-900 font-black text-xs px-3 py-1 rounded-md inline-block uppercase mb-3">if - then - else</div>
+          <h3 class="text-white font-bold text-xl mb-2">Two Pathway Choice</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Has two branches: runs path #1 if TRUE, or switches to path #2 if FALSE!
+          </p>
+          <div class="mt-4 bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-amber-400">
+            if &lt;score &gt; 10&gt; then<br/>
+            &nbsp;&nbsp;say "You Win!"<br/>
+            else<br/>
+            &nbsp;&nbsp;say "Keep Trying!"
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/40 border border-slate-700/50 rounded-xl p-3 text-xs text-slate-300 flex items-center gap-2">
+        <i class="fa-solid fa-lightbulb text-yellow-400 text-base"></i>
+        <span><b>Teacher Tip:</b> Remind students that conditions always result in either <b>TRUE</b> or <b>FALSE</b>.</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: QUESTION REVIEW (Q6 & Q8) -->
+    <div class="slide flex-col justify-between h-full">
+      <div>
+        <span class="text-scratch-400 font-extrabold text-xs uppercase tracking-wider">Quiz Breakdown</span>
+        <h2 class="font-display font-black text-3xl text-white mt-1">Understanding Decision Logic</h2>
+      </div>
+
+      <div class="space-y-4 my-auto">
+        <!-- Q6 Breakdown -->
+        <div class="bg-slate-800/60 border border-slate-700 p-5 rounded-2xl">
+          <div class="text-xs font-bold text-scratch-400 uppercase">Question 6</div>
+          <h3 class="text-white font-bold text-lg">What happens if a condition inside an <span class="text-control">if-then</span> block is FALSE?</h3>
+          <div class="mt-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 p-3 rounded-xl font-bold text-sm flex items-center gap-2">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Answer: Scratch skips the code inside and moves directly to the next block.</span>
+          </div>
+        </div>
+
+        <!-- Q8 Breakdown -->
+        <div class="bg-slate-800/60 border border-slate-700 p-5 rounded-2xl">
+          <div class="text-xs font-bold text-scratch-400 uppercase">Question 8</div>
+          <h3 class="text-white font-bold text-lg">What is the main difference between <span class="text-control">if-then</span> and <span class="text-control">if-then-else</span>?</h3>
+          <div class="mt-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 p-3 rounded-xl font-bold text-sm flex items-center gap-2">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Answer: <code class="bg-slate-900 px-1.5 py-0.5 rounded text-amber-300">if-then-else</code> provides two distinct pathways (one for TRUE and one for FALSE).</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-xs text-slate-500 italic">Key takeaway: Choice blocks prevent programs from getting stuck!</div>
+    </div>
+
+    <!-- SLIDE 4: SENSING + CONDITIONALS (Q7 & Q9) -->
+    <div class="slide flex-col justify-between h-full">
+      <div>
+        <span class="text-scratch-400 font-extrabold text-xs uppercase tracking-wider">Sensing + Logic</span>
+        <h2 class="font-display font-black text-3xl text-white mt-1">Combining Sensing with Conditionals</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <!-- Key Press Card -->
+        <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-5">
+          <span class="text-sensing font-extrabold text-xs uppercase">Keyboard Controls</span>
+          <h3 class="text-white font-bold text-lg mt-1">Checking Key Presses</h3>
+          <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+            Place sensing blocks like <span class="text-sensing font-mono">&lt;key up arrow pressed?&gt;</span> inside the conditional mouth.
+          </p>
+          <div class="mt-4 bg-slate-950 p-3 rounded-xl text-xs font-mono text-amber-300 border border-slate-800">
+            if &lt;key up arrow pressed?&gt; then<br/>
+            &nbsp;&nbsp;play sound "Meow"
+          </div>
+        </div>
+
+        <!-- Touch Sensing Card -->
+        <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-5">
+          <span class="text-sensing font-extrabold text-xs uppercase">Collision Detect</span>
+          <h3 class="text-white font-bold text-lg mt-1">Touching Colors & Hazards</h3>
+          <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+            Check if a sprite collides with game hazards using <span class="text-sensing font-mono">&lt;touching color red?&gt;</span>.
+          </p>
+          <div class="mt-4 bg-slate-950 p-3 rounded-xl text-xs font-mono text-amber-300 border border-slate-800">
+            if &lt;touching color red?&gt; then<br/>
+            &nbsp;&nbsp;change lives by -1
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-scratch-500/10 border border-scratch-500/20 text-scratch-300 p-3 rounded-xl text-xs flex items-center gap-2">
+        <i class="fa-solid fa-bolt text-scratch-400"></i>
+        <span><b>Pro Tip:</b> Sensing blocks have hexagonal shapes that fit perfectly into decision blocks!</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: SEQUENCE BUILDING (Q10) -->
+    <div class="slide flex-col justify-between h-full">
+      <div>
+        <span class="text-scratch-400 font-extrabold text-xs uppercase tracking-wider">Sequence Logic</span>
+        <h2 class="font-display font-black text-3xl text-white mt-1">Building a Victory Check Script</h2>
+      </div>
+
+      <div class="my-auto max-w-2xl mx-auto w-full space-y-3">
+        <p class="text-slate-400 text-xs text-center mb-4">Arrange blocks from top to bottom in correct execution order:</p>
+        
+        <!-- STEP 1 -->
+        <div class="bg-events text-slate-900 font-extrabold p-4 rounded-xl shadow-md flex items-center justify-between border-2 border-amber-300">
+          <div class="flex items-center gap-3">
+            <span class="bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span>
+            <span>when green flag clicked</span>
+          </div>
+          <span class="text-xs uppercase bg-slate-900/10 px-2 py-1 rounded font-bold">Event Block</span>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="bg-control text-slate-900 font-extrabold p-4 rounded-xl shadow-md flex items-center justify-between border-2 border-amber-400 pl-8">
+          <div class="flex items-center gap-3">
+            <span class="bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
+            <span>if &lt;Score &gt; 10&gt; then</span>
+          </div>
+          <span class="text-xs uppercase bg-slate-900/10 px-2 py-1 rounded font-bold">Condition Check</span>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="bg-looks text-white font-extrabold p-4 rounded-xl shadow-md flex items-center justify-between border-2 border-purple-300 pl-14">
+          <div class="flex items-center gap-3">
+            <span class="bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">3</span>
+            <span>say "You Win!" for 2 seconds</span>
+          </div>
+          <span class="text-xs uppercase bg-white/20 px-2 py-1 rounded font-bold">Inside Action</span>
+        </div>
+      </div>
+
+      <div class="text-center text-slate-400 text-xs">The action block must sit nested inside the conditional wrapper!</div>
+    </div>
+
+    <!-- SLIDE 6: CATEGORY COLORS MATCHING (Q13) -->
+    <div class="slide flex-col justify-between h-full">
+      <div>
+        <span class="text-scratch-400 font-extrabold text-xs uppercase tracking-wider">Block Palette</span>
+        <h2 class="font-display font-black text-3xl text-white mt-1">Scratch Block Categories & Colors</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-auto">
+        <!-- MOTION -->
+        <div class="bg-motion text-white p-5 rounded-2xl flex flex-col justify-between h-40 shadow-lg">
+          <span class="font-black text-xs uppercase tracking-wider opacity-80">Motion</span>
+          <div>
+            <div class="font-bold text-lg">Blue</div>
+            <div class="text-xs opacity-90 mt-1">move 10 steps, turn 15 deg</div>
+          </div>
+        </div>
+
+        <!-- LOOKS -->
+        <div class="bg-looks text-white p-5 rounded-2xl flex flex-col justify-between h-40 shadow-lg">
+          <span class="font-black text-xs uppercase tracking-wider opacity-80">Looks</span>
+          <div>
+            <div class="font-bold text-lg">Purple</div>
+            <div class="text-xs opacity-90 mt-1">next costume, say Hello</div>
+          </div>
+        </div>
+
+        <!-- EVENTS -->
+        <div class="bg-events text-slate-900 p-5 rounded-2xl flex flex-col justify-between h-40 shadow-lg">
+          <span class="font-black text-xs uppercase tracking-wider opacity-80">Events</span>
+          <div>
+            <div class="font-bold text-lg">Yellow</div>
+            <div class="text-xs font-bold opacity-90 mt-1">when green flag clicked</div>
+          </div>
+        </div>
+
+        <!-- CONTROL -->
+        <div class="bg-control text-slate-900 p-5 rounded-2xl flex flex-col justify-between h-40 shadow-lg">
+          <span class="font-black text-xs uppercase tracking-wider opacity-80">Control</span>
+          <div>
+            <div class="font-bold text-lg">Orange</div>
+            <div class="text-xs font-bold opacity-90 mt-1">forever, if-then, repeat</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-xs text-slate-400 text-center">Recognizing block colors makes finding code blocks much faster!</div>
+    </div>
+
+    <!-- SLIDE 7: COORDINATES & MOVEMENT (Q4 & Q15) -->
+    <div class="slide flex-col justify-between h-full">
+      <div>
+        <span class="text-scratch-400 font-extrabold text-xs uppercase tracking-wider">Grid Axis</span>
+        <h2 class="font-display font-black text-3xl text-white mt-1">X and Y Coordinates Quick Guide</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <!-- X AXIS -->
+        <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 bg-motion/20 text-motion rounded-2xl flex items-center justify-center mx-auto mb-3 font-black text-xl">X</div>
+          <h3 class="text-white font-bold text-lg">Horizontal (Left / Right)</h3>
+          <div class="mt-4 flex justify-center gap-3 text-xs font-bold">
+            <span class="bg-slate-900 text-slate-300 px-3 py-2 rounded-xl border border-slate-700">Change X by -10 (Left ⬅️)</span>
+            <span class="bg-slate-900 text-slate-300 px-3 py-2 rounded-xl border border-slate-700">Change X by +10 (Right ➡️)</span>
+          </div>
+        </div>
+
+        <!-- Y AXIS -->
+        <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 bg-motion/20 text-motion rounded-2xl flex items-center justify-center mx-auto mb-3 font-black text-xl">Y</div>
+          <h3 class="text-white font-bold text-lg">Vertical (Up / Down)</h3>
+          <div class="mt-4 flex justify-center gap-3 text-xs font-bold">
+            <span class="bg-slate-900 text-slate-300 px-3 py-2 rounded-xl border border-slate-700">Change Y by +10 (Up ⬆️)</span>
+            <span class="bg-slate-900 text-slate-300 px-3 py-2 rounded-xl border border-slate-700">Change Y by -10 (Down ⬇️)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/40 border border-slate-700/50 p-3 rounded-xl text-center text-xs text-slate-300">
+        <b>Memory Trick:</b> <b>X</b> goes across, <b>Y</b> points to the sky!
+      </div>
+    </div>
+
+    <!-- SLIDE 8: SUMMARY -->
+    <div class="slide flex-col justify-between h-full text-center">
+      <div class="my-auto space-y-6">
+        <div class="w-20 h-20 bg-emerald-500/20 text-emerald-400 border-2 border-emerald-500/40 rounded-3xl flex items-center justify-center mx-auto text-4xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="font-display font-black text-4xl text-white">Great Job, Scratch Coders!</h2>
+        <p class="text-slate-300 text-base max-w-xl mx-auto">
+          You have mastered <b>Events</b>, <b>Loops</b>, <b>Coordinates</b>, and <b>Conditional Statements</b> in Scratch.
+        </p>
+
+        <div class="flex justify-center gap-4 text-xs font-bold text-slate-300 pt-2">
+          <div class="bg-slate-800 border border-slate-700 px-4 py-3 rounded-2xl flex items-center gap-2">
+            <i class="fa-solid fa-check text-emerald-400"></i> Events Start Code
+          </div>
+          <div class="bg-slate-800 border border-slate-700 px-4 py-3 rounded-2xl flex items-center gap-2">
+            <i class="fa-solid fa-check text-emerald-400"></i> Conditions Make Choices
+          </div>
+          <div class="bg-slate-800 border border-slate-700 px-4 py-3 rounded-2xl flex items-center gap-2">
+            <i class="fa-solid fa-check text-emerald-400"></i> Loops Repeat
+          </div>
+        </div>
+      </div>
+
+      <div class="text-xs text-scratch-400 font-bold uppercase tracking-widest">Ready to Build Your Project!</div>
+    </div>
+
+  </main>
+
+  <!-- NAVIGATION FOOTER CONTROLS -->
+  <footer class="max-w-6xl w-full mx-auto flex justify-between items-center text-white">
+    <button onclick="prevSlide()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 px-6 py-3 rounded-2xl font-bold text-sm flex items-center gap-2 transition">
+      <i class="fa-solid fa-arrow-left"></i> Previous
+    </button>
+    <div class="text-xs text-slate-500 font-medium hidden sm:block">
+      Scratch Computing Deck • Press <code class="bg-slate-800 text-slate-300 px-1 rounded">Space</code> to advance
+    </div>
+    <button onclick="nextSlide()" class="bg-scratch-500 hover:bg-scratch-600 text-white px-6 py-3 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-scratch-500/20 transition">
+      Next <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const currentSlideNum = document.getElementById('current-slide-num');
+    const totalSlidesNum = document.getElementById('total-slides-num');
+
+    totalSlidesNum.innerText = slides.length;
+
+    function updateSlides() {
+      slides.forEach((slide, idx) => {
+        if (idx === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      currentSlideNum.innerText = currentSlide + 1;
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlides();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlides();
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+  </script>
+</body>
+</html>
